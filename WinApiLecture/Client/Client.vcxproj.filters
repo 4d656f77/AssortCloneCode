@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Default">
+      <UniqueIdentifier>{a7710a48-bcad-43a6-93e8-03d07169f791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Default\리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{1e94b3ed-348c-4985-866a-ac6105c66e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Core">
+      <UniqueIdentifier>{1aa456a1-0289-46b0-860b-2439e7ccbc7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Header">
+      <UniqueIdentifier>{67d41835-0308-4e3f-937a-a054da02ddff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Object">
+      <UniqueIdentifier>{2c9c27d2-a28b-4fb9-8066-a0f0473a000b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Manger">
+      <UniqueIdentifier>{9f496049-a70d-4974-a1d8-6bec593bdd85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Manger\KeyMgr">
+      <UniqueIdentifier>{a8e323f5-e7be-4fa8-9cc4-c42ed0ccc9bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Manger\TimeMgr">
+      <UniqueIdentifier>{80eab481-7a03-4755-9d75-57e5ad720228}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CCore.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>Engine\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CkeyMgr.h">
+      <Filter>Engine\Manger\KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="CObject.h">
+      <Filter>Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>Engine\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CTimeMgr.h">
+      <Filter>Engine\Manger\TimeMgr</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Client.rc">
+      <Filter>Default\리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>Default\리소스 파일</Filter>
+    </Image>
+    <Image Include="Client.ico">
+      <Filter>Default\리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CCore.cpp">
+      <Filter>Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Default</Filter>
+    </ClCompile>
+    <ClCompile Include="CkeyMgr.cpp">
+      <Filter>Engine\Manger\KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CObject.cpp">
+      <Filter>Engine\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CTimeMgr.cpp">
+      <Filter>Engine\Manger\TimeMgr</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
