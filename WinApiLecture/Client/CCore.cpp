@@ -9,12 +9,16 @@ CCore::CCore()
 	: m_hWnd(0)
 	, m_ptResolution{}
 	, m_hDC(0)
+	, m_hBit(0)
+	, m_memDC(0)
 {
 }
 
 CCore::~CCore()
 {
 	ReleaseDC(m_hWnd, m_hDC);
+	DeleteDC(m_memDC);
+	DeleteObject(m_hBit);
 }
 
 CObject g_obj;
@@ -36,6 +40,14 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 	// DC초기화
 	m_hDC = GetDC(m_hWnd);
 
+	// double buffering
+	// 비트맵 만들어서 거기에 그린다!
+	m_hBit = CreateCompatibleBitmap(m_hDC, m_ptResolution.x, m_ptResolution.y);
+	// 비트맵(1x1짜리 비트맵)에 대한 DC 만들기
+	m_memDC = CreateCompatibleDC(m_hDC);
+	// DC와 비트맵을 연결한다.
+	HBITMAP hOldBit = (HBITMAP)SelectObject(m_memDC, m_hBit);
+	DeleteObject(hOldBit);
 
 	// Manager 초기화
 	CTimeMgr::GetInst()->init();
@@ -98,13 +110,19 @@ void CCore::update()
 
 void CCore::render()
 {
+	// 화면 덮기
+	Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y + 1);
+
 	Vec2 vPos = g_obj.GetPos();
 	Vec2 vScale = g_obj.GetScale();
-	//그리기 작업
-	Rectangle(m_hDC,
+
+	// 그리기 작업
+	Rectangle(m_memDC,
 			(int)(vPos.x - vScale.x / 2.f),
 			(int)(vPos.y - vScale.y / 2.f),
 			(int)(vPos.x + vScale.x / 2.f),
 			(int)(vPos.y + vScale.y / 2.f));
 
+	// 옮기기
+	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y, m_memDC, 0, 0, SRCCOPY);
 }
