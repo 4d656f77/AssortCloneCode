@@ -6,3 +6,5 @@
 #include <Windows.h>
 #include "struct.h"
 #include "CTimeMgr.h"
+#include "CKeyMgr.h"
+

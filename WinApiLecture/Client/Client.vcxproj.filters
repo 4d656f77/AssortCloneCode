@@ -49,7 +49,7 @@
     <ClInclude Include="define.h">
       <Filter>Engine\Header</Filter>
     </ClInclude>
-    <ClInclude Include="CkeyMgr.h">
+    <ClInclude Include="CKeyMgr.h">
       <Filter>Engine\Manger\KeyMgr</Filter>
     </ClInclude>
     <ClInclude Include="pch.h" />
@@ -83,7 +83,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Default</Filter>
     </ClCompile>
-    <ClCompile Include="CkeyMgr.cpp">
+    <ClCompile Include="CKeyMgr.cpp">
       <Filter>Engine\Manger\KeyMgr</Filter>
     </ClCompile>
     <ClCompile Include="CObject.cpp">

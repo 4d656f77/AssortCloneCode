@@ -51,7 +51,7 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 
 	// Manager ÃÊ±âÈ­
 	CTimeMgr::GetInst()->init();
-	
+	CKeyMgr::GetInst()->init();
 	g_obj.SetPos( Vec2((float)(m_ptResolution.x / 2), (float)(m_ptResolution.y / 2)) );
 	g_obj.SetScale(Vec2( 100, 100 ));
 	return S_OK;
@@ -73,6 +73,7 @@ void CCore::progress()
 	//}
 
 	CTimeMgr::GetInst()->update();
+	CKeyMgr::GetInst()->update();
 
 	update();
 
@@ -86,22 +87,39 @@ void CCore::update()
 {
 
 	Vec2 vPos = g_obj.GetPos();
-	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+	if (CKeyMgr::GetInst()->GetKeyState(KEY::LEFT) == KEY_STATE::HOLD)
 	{
-		vPos.x -= 200.f * fDT;
+		vPos.x -= 250.f * fDT;
 	}
-	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+	if (CKeyMgr::GetInst()->GetKeyState(KEY::RIGHT) == KEY_STATE::HOLD)
 	{
-		vPos.x += 200.f * fDT;
+		vPos.x += 250.f * fDT;
 	}
-	if (GetAsyncKeyState(VK_UP) & 0x8000)
+	if (CKeyMgr::GetInst()->GetKeyState(KEY::UP) == KEY_STATE::HOLD)
 	{
-		vPos.y -= 200.f * fDT;
+		vPos.y -= 250.f * fDT;
 	}
-	if (GetAsyncKeyState(VK_DOWN) & 0x8000)
+	if (CKeyMgr::GetInst()->GetKeyState(KEY::DOWN) == KEY_STATE::HOLD)
 	{
-		vPos.y += 200.f * fDT;
+		vPos.y += 250.f * fDT;
 	}
+
+	//if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+	//{
+	//	vPos.x -= 200.f * fDT;
+	//}
+	//if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+	//{
+	//	vPos.x += 200.f * fDT;
+	//}
+	//if (GetAsyncKeyState(VK_UP) & 0x8000)
+	//{
+	//	vPos.y -= 200.f * fDT;
+	//}
+	//if (GetAsyncKeyState(VK_DOWN) & 0x8000)
+	//{
+	//	vPos.y += 200.f * fDT;
+	//}
 
 
 

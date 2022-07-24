@@ -144,7 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CCore.h" />
-    <ClInclude Include="CkeyMgr.h" />
+    <ClInclude Include="CKeyMgr.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="CObject.h" />
     <ClInclude Include="CTimeMgr.h" />
@@ -157,7 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCore.cpp" />
-    <ClCompile Include="CkeyMgr.cpp" />
+    <ClCompile Include="CKeyMgr.cpp" />
     <ClCompile Include="CObject.cpp" />
     <ClCompile Include="CTimeMgr.cpp" />
     <ClCompile Include="main.cpp" />
