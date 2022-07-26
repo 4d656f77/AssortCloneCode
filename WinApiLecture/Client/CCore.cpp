@@ -52,6 +52,8 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 	// Manager 초기화
 	CTimeMgr::GetInst()->init();
 	CKeyMgr::GetInst()->init();
+	CSceneMgr::GetInst()->init();
+
 	g_obj.SetPos( Vec2((float)(m_ptResolution.x / 2), (float)(m_ptResolution.y / 2)) );
 	g_obj.SetScale(Vec2( 100, 100 ));
 	return S_OK;
@@ -74,73 +76,13 @@ void CCore::progress()
 
 	CTimeMgr::GetInst()->update();
 	CKeyMgr::GetInst()->update();
+	CSceneMgr::GetInst()->update();
 
-	update();
-
-	render();
-
-
-
-}
-
-void CCore::update()
-{
-
-	Vec2 vPos = g_obj.GetPos();
-	if (CKeyMgr::GetInst()->GetKeyState(KEY::LEFT) == KEY_STATE::HOLD)
-	{
-		vPos.x -= 250.f * fDT;
-	}
-	if (CKeyMgr::GetInst()->GetKeyState(KEY::RIGHT) == KEY_STATE::HOLD)
-	{
-		vPos.x += 250.f * fDT;
-	}
-	if (CKeyMgr::GetInst()->GetKeyState(KEY::UP) == KEY_STATE::HOLD)
-	{
-		vPos.y -= 250.f * fDT;
-	}
-	if (CKeyMgr::GetInst()->GetKeyState(KEY::DOWN) == KEY_STATE::HOLD)
-	{
-		vPos.y += 250.f * fDT;
-	}
-
-	//if (GetAsyncKeyState(VK_LEFT) & 0x8000)
-	//{
-	//	vPos.x -= 200.f * fDT;
-	//}
-	//if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
-	//{
-	//	vPos.x += 200.f * fDT;
-	//}
-	//if (GetAsyncKeyState(VK_UP) & 0x8000)
-	//{
-	//	vPos.y -= 200.f * fDT;
-	//}
-	//if (GetAsyncKeyState(VK_DOWN) & 0x8000)
-	//{
-	//	vPos.y += 200.f * fDT;
-	//}
-
-
-
-	g_obj.SetPos(vPos);
-}
-
-void CCore::render()
-{
-	// 화면 덮기
+	// 화면 클리어
 	Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y + 1);
+	
+	CSceneMgr::GetInst()->render(m_memDC);
 
-	Vec2 vPos = g_obj.GetPos();
-	Vec2 vScale = g_obj.GetScale();
-
-	// 그리기 작업
-	Rectangle(m_memDC,
-			(int)(vPos.x - vScale.x / 2.f),
-			(int)(vPos.y - vScale.y / 2.f),
-			(int)(vPos.x + vScale.x / 2.f),
-			(int)(vPos.y + vScale.y / 2.f));
-
-	// 옮기기
-	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y, m_memDC, 0, 0, SRCCOPY);
+	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y
+		, m_memDC, 0, 0, SRCCOPY);
 }

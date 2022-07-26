@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 #include <vector>
 // 1. 같은 프레임에 같은 정보를 가지고 있어야함
 // 2. 키 입력 이벤트

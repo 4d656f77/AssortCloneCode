@@ -10,7 +10,7 @@ public:
 
 public:
 	CObject();
-	~CObject(); 
+	virtual ~CObject(); 
 
 public:
 	Vec2 m_vPos;
