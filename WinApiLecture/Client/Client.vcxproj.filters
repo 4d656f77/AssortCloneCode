@@ -35,10 +35,10 @@
     <Filter Include="Engine\Manger\SceneMgr">
       <UniqueIdentifier>{b55fd272-cae9-4f79-b1cc-64c6092c07ad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Manger\SceneMgr\StartScene">
+    <Filter Include="Engine\Scene\StartScene">
       <UniqueIdentifier>{040a8a77-4d94-419b-88a1-dd761129bf74}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Manger\SceneMgr\ToolScene">
+    <Filter Include="Engine\Scene\ToolScene">
       <UniqueIdentifier>{d923b9c5-ca3c-4918-a892-fe91f6e03a34}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -81,10 +81,10 @@
       <Filter>Engine\Manger\SceneMgr</Filter>
     </ClInclude>
     <ClInclude Include="CToolScene.h">
-      <Filter>Engine\Manger\SceneMgr\ToolScene</Filter>
+      <Filter>Engine\Scene\ToolScene</Filter>
     </ClInclude>
     <ClInclude Include="CStartScene.h">
-      <Filter>Engine\Manger\SceneMgr\StartScene</Filter>
+      <Filter>Engine\Scene\StartScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -123,10 +123,10 @@
       <Filter>Engine\Manger\SceneMgr</Filter>
     </ClCompile>
     <ClCompile Include="CToolScene.cpp">
-      <Filter>Engine\Manger\SceneMgr\ToolScene</Filter>
+      <Filter>Engine\Scene\ToolScene</Filter>
     </ClCompile>
     <ClCompile Include="CStartScene.cpp">
-      <Filter>Engine\Manger\SceneMgr\StartScene</Filter>
+      <Filter>Engine\Scene\StartScene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -63,16 +63,6 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 
 void CCore::progress()
 {
-	//static int callCount = 0;
-	//++callCount;
-	//static int iPrevCount = GetTickCount();
-	//int iCurCount = GetTickCount();
-	//if (iCurCount - iPrevCount > 1000)
-	//{
-	//	callCount;
-	//	iPrevCount = iCurCount;
-	//	callCount = 0;
-	//}
 
 	CTimeMgr::GetInst()->update();
 	CKeyMgr::GetInst()->update();
@@ -83,6 +73,7 @@ void CCore::progress()
 	
 	CSceneMgr::GetInst()->render(m_memDC);
 
+	// 한번에 보여 주기
 	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y
 		, m_memDC, 0, 0, SRCCOPY);
 }

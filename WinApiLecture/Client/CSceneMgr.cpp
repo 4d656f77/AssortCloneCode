@@ -22,11 +22,12 @@ CSceneMgr::~CSceneMgr()
 
 void CSceneMgr::init()
 {
-	// 씬 생성
+	// 스타트 씬 생성
 	m_arrScene[(UINT)SCENE_TYPE::START] = new CStartScene;
 	m_arrScene[(UINT)SCENE_TYPE::START]->SetName(L"Start Scene");
 	//m_arrScene[(UINT)SCENE_TYPE::TOOL] = new CToolScene;
 
+	// 여기에서 모든 씬이 생성되어야 한다.
 
 	// 현재 씬 설정
 	m_pCurScene = m_arrScene[(UINT)SCENE_TYPE::START];
